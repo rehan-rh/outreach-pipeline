@@ -1,111 +1,181 @@
-:root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+@import "tailwindcss";
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
+/* ===== LeadFlow AI CRM Dark Design System (Clay / Attio Inspired) ===== */
 
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
-  color: var(--text);
-  background: var(--bg);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@theme {
+  /* Corporate Blue Accents */
+  --color-brand-50: #eff6ff;
+  --color-brand-100: #dbeafe;
+  --color-brand-200: #bfdbfe;
+  --color-brand-300: #93c5fd;
+  --color-brand-400: #60a5fa;
+  --color-brand-500: #3b82f6; /* Modern B2B Accent Blue */
+  --color-brand-600: #2563eb;
+  --color-brand-700: #1d4ed8;
+  --color-brand-800: #1e40af;
+  --color-brand-900: #1e3a8a;
 
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
+  /* Premium B2B Dark Slate Theme */
+  --color-surface-0: #0b0f19;      /* Dark background */
+  --color-surface-50: #0f1424;     /* Slightly lighter base */
+  --color-surface-100: #161b30;    /* Solid Card Surface */
+  --color-surface-200: #1f253f;    /* Light borders / divider lines */
+  --color-surface-300: #2b3356;    /* Active borders */
+  --color-surface-400: #475584;    /* Muted gray text / labels */
+  --color-surface-500: #6474a6;    /* Subtext */
+  --color-surface-600: #94a3b8;    /* Soft gray text */
+  --color-surface-700: #cbd5e1;    /* Standard text */
+  --color-surface-800: #e2e8f0;    /* High contrast text */
+  --color-surface-900: #f8fafc;    /* Titles */
+  --color-surface-950: #ffffff;
+
+  /* Semantic Alerts */
+  --color-emerald: #10b981;
+  --color-amber: #f59e0b;
+  --color-rose: #ef4444;
+  --color-cyan: #06b6d4;
+  --color-violet: #8b5cf6;
+
+  /* Typography */
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  /* Shadows (Subtle, professional) */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -2px rgba(0, 0, 0, 0.4);
+  --shadow-card: 0 4px 16px 0 rgba(0, 0, 0, 0.3);
+
+  /* Animations */
+  --animate-fade-in: fade-in 0.15s ease-out;
+  --animate-slide-up: slide-up 0.15s ease-out;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
-
-  #social .button-icon {
-    filter: invert(1) brightness(2);
-  }
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
-body {
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== Global Corporate CRM Dark Styles ===== */
+
+* {
   margin: 0;
-}
-
-#root {
-  width: 1126px;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
+  padding: 0;
   box-sizing: border-box;
 }
 
-h1,
-h2 {
-  font-family: var(--heading);
-  font-weight: 500;
-  color: var(--text-h);
+body {
+  font-family: var(--font-sans);
+  background-color: #0b0f19; /* Solid deep slate background */
+  color: var(--color-surface-700);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
 }
 
-h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
-}
-h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
-}
-p {
-  margin: 0;
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
 }
 
-code,
-.counter {
-  font-family: var(--mono);
-  display: inline-flex;
+::-webkit-scrollbar-track {
+  background: #0f1424;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2b3356;
   border-radius: 4px;
-  color: var(--text-h);
 }
 
-code {
-  font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
+::-webkit-scrollbar-thumb:hover {
+  background: #475584;
+}
+
+/* ===== CRM Core CSS Components ===== */
+
+/* Dark border card typical of Clay/Attio */
+.card {
+  background: #161b30;
+  border: 1px solid #2b3356;
+  border-radius: 8px;
+  box-shadow: var(--shadow-card);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.card:hover {
+  border-color: #3b82f6;
+  box-shadow: 0 4px 14px rgba(59, 130, 246, 0.1);
+}
+
+/* Table styling */
+.crm-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.crm-table th {
+  background-color: #0f1424;
+  border-bottom: 1px solid #2b3356;
+  color: #94a3b8;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.crm-table td {
+  border-bottom: 1px solid #1f253f;
+  color: #cbd5e1;
+  font-size: 13px;
+}
+
+.crm-table tr:hover td {
+  background-color: #1f253f;
+}
+
+/* Badges */
+.badge-success {
+  background-color: rgba(16, 185, 129, 0.1);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.badge-warning {
+  background-color: rgba(245, 158, 11, 0.1);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.2);
+}
+
+.badge-error {
+  background-color: rgba(239, 68, 68, 0.1);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.badge-info {
+  background-color: rgba(59, 130, 246, 0.1);
+  color: #60a5fa;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+/* Skeleton Loading Shimmer */
+.skeleton {
+  background: #1f253f;
+  background-image: linear-gradient(
+    90deg,
+    #1f253f 0px,
+    #2b3356 40px,
+    #1f253f 80px
+  );
+  background-size: 250px 100%;
+  background-repeat: no-repeat;
+  animation: shimmer-load 1.2s infinite linear;
+  border-radius: 4px;
+}
+
+@keyframes shimmer-load {
+  0% { background-position: -150px 0; }
+  100% { background-position: 150px 0; }
 }
